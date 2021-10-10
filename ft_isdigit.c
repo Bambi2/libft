@@ -1,5 +1,4 @@
-#include <ctype.h>
-#include <stdio.h>
+#include "libft.h"
 
 int ft_isdigit(int c)
 {
@@ -9,8 +8,8 @@ int ft_isdigit(int c)
 }
 
 
-int main()
-{
-	printf("real = %d ", isdigit(9));
-	printf("mine = %d\n", ft_isdigit(9));
-}
+// int main()
+// {
+// 	printf("real = %d ", isdigit(9));
+// 	printf("mine = %d\n", ft_isdigit(9));
+// }

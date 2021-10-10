@@ -3,7 +3,7 @@
 char	*ft_substr(char const *s, unsigned int start, size_t len)
 {
 	char	*result;
-	int		i;
+	size_t	i;
 
 	i = 0;
 	while (s[i + start] && i < len)
@@ -12,7 +12,7 @@ char	*ft_substr(char const *s, unsigned int start, size_t len)
 	if (!result)
 		return (NULL);
 	i = 0;
-	while (i < len && s[i + start]);
+	while (i < len && s[i + start])
 	{
 		result[i] = s[i + start];
 		i++;

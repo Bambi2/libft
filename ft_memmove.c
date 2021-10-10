@@ -21,16 +21,16 @@ void	*ft_memmove(void *dst, const void *src, size_t len)
 }
 
 
-int main()
-{
-	char text1[] = "Mac Miller";
-	char text2[] = "Boss";
-	char *zero1 = 0;
-	memmove(text1 + 4, zero1, 5);
-	// char text3[] = "Mac Miller";
-	// char text4[] = "Boss";
-	// char *zero2 = 0;
-	// ft_memmove(text3 + 4, zero2, 5);
-	printf("Real = %s ", text1);
-	// printf("Mine = %s", text3);
-}
+// int main()
+// {
+// 	char text1[] = "Mac Miller";
+// 	char text2[] = "Boss";
+// 	char *zero1 = 0;
+// 	memmove(text1 + 4, zero1, 5);
+// 	// char text3[] = "Mac Miller";
+// 	// char text4[] = "Boss";
+// 	// char *zero2 = 0;
+// 	// ft_memmove(text3 + 4, zero2, 5);
+// 	printf("Real = %s ", text1);
+// 	// printf("Mine = %s", text3);
+// }

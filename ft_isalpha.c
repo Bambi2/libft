@@ -1,5 +1,4 @@
-#include <ctype.h>
-#include <stdio.h>
+#include "libft.h"
 
 
 int	ft_isalpha(int c)
@@ -10,8 +9,8 @@ int	ft_isalpha(int c)
 }
 
 
-int main()
-{
-	printf("real = %d\n",isalpha(0170));
-	printf("mine = %d\n",ft_isalpha(0170));
-}
+// int main()
+// {
+// 	printf("real = %d\n",isalpha(0170));
+// 	printf("mine = %d\n",ft_isalpha(0170));
+// }

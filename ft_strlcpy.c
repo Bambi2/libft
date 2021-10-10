@@ -15,11 +15,11 @@ size_t	ft_strlcpy(char *dst, const char *src, size_t dstsize)
 	return (ft_strlen(src));
 }
 
-int main()
-{
-	char text1[] = "Mac Miller";
-	char text2[] = "Miller";
-	size_t result = strlcpy(text1, text2, 10);
-	printf("real = %s", text1);
+// int main()
+// {
+// 	char text1[] = "Mac Miller";
+// 	char text2[] = "Miller";
+// 	size_t result = strlcpy(text1, text2, 10);
+// 	printf("real = %s", text1);
 
-}
+// }

@@ -1,5 +1,4 @@
-#include <ctype.h>
-#include <stdio.h>
+#include "libft.h"
 
 int ft_isalnum(int c)
 {
@@ -13,8 +12,8 @@ int ft_isalnum(int c)
 }
 
 
-int main()
-{
-    printf("real = %d ", isalnum(5));
-    printf("mine = %d\n", ft_isalnum(5));
-}
+// int main()
+// {
+//     printf("real = %d ", isalnum(5));
+//     printf("mine = %d\n", ft_isalnum(5));
+// }
