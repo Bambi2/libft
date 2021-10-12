@@ -4,17 +4,17 @@
 static int	get_string_count(char const *s, char c)
 {
 	int	i;
-	int	result;
+	int	count;
 
 	i = 0;
-	result = 1;
+	count = 1;
 	while (s[i])
 	{
 		if (s[i] == c && i != 0 && s[i + 1])
-			result++;
+			count++;
 		i++;
 	}
-	return (result);
+	return (count);
 }
 
 static int	get_string_length(char const *s, char c)
@@ -31,30 +31,48 @@ static int	get_string_length(char const *s, char c)
 	return (i);
 }
 
-char	**ft_split(char const *s, char c)
+static int	fill(char **result, char const *s, char c)
 {
 	int	i;
 	int	j;
 	int	z;
+	int length;
+
+	i = 0;
+	z = 0;
+	while(s[z])
+	{
+		length = get_string_length(s + z, c);
+		if (!length)
+		{
+			z++;
+			continue;
+		}
+		result[i] = (char *) malloc((length + 1) * sizeof(char));
+		if (!result[i])
+		{
+			while (i - 1 >= 0)
+				free(result[--i]);
+			return (0);
+		}
+		j = 0;
+		while(s[z] != c && s[z])
+			result[i][j++] = s[z++];
+		z++;
+		result[i++][j] = '\0';
+	}
+	result[i] = NULL;
+	return (1);
+}
+
+char	**ft_split(char const *s, char c)
+{
 	char	**result;
 
 	result = (char **) malloc((get_string_count(s, c) + 1) * sizeof(char *));
 	if (!result)
 		return (NULL);
-	i = 0;
-	z = 0;
-	while(s[z])
-	{
-		result[i] = (char *) malloc((get_string_length(s + z, c) + 1) * sizeof(char));
-		if (!result[i])
-		{
-			while (i >= 0)
-				free(result[i--]);
-			return (NULL);
-		}
-		j = 0;
-		while(s[i] != c)
-			result[i][j++] = s[z++];
-		result[i++][j] = '\0';
-	}
+	if (!fill(result, s, c))
+		return (NULL);
+	return (result);
 }
