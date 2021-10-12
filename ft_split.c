@@ -10,7 +10,7 @@ static int	get_string_count(char const *s, char c)
 	result = 1;
 	while (s[i])
 	{
-		if (s[i] == c)
+		if (s[i] == c && i != 0 && s[i + 1])
 			result++;
 		i++;
 	}

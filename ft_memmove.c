@@ -2,10 +2,12 @@
 
 void	*ft_memmove(void *dst, const void *src, size_t len)
 {
-	size_t	i;
+	size_t			i;
 	char	temp[len];
 
 	i = 0;
+	if (!dst && !src)
+		return (NULL);
 	while (i < len)
 	{
 		temp[i] = *(char *)(src + i);
