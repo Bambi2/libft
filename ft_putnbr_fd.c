@@ -22,7 +22,7 @@ void	ft_putnbr_fd(int n, int fd)
 		output = n + 48;
 		write(fd, &output, 1);
 	}
-	else 
+	else
 	{
 		ft_putnbr_fd(n / 10, fd);
 		ft_putnbr_fd(n % 10, fd);

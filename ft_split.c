@@ -1,6 +1,5 @@
 #include "libft.h"
 
-
 static int	get_string_count(char const *s, char c)
 {
 	int	i;
@@ -25,7 +24,7 @@ static int	get_string_length(char const *s, char c)
 	while (s[i])
 	{
 		if (s[i] == c)
-			break;
+			break ;
 		i++;
 	}
 	return (i);
@@ -36,30 +35,28 @@ static int	fill(char **result, char const *s, char c)
 	int	i;
 	int	j;
 	int	z;
-	int length;
+	int	length;
 
 	i = 0;
 	z = 0;
-	while(s[z])
+	while (s[z])
 	{
 		length = get_string_length(s + z, c);
-		if (!length)
+		if (length)
 		{
-			z++;
-			continue;
+			result[i] = (char *) malloc((length + 1) * sizeof(char));
+			if (!result[i])
+			{
+				while (i - 1 >= 0)
+					free(result[--i]);
+				return (0);
+			}
+			j = 0;
+			while (s[z] != c && s[z])
+				result[i][j++] = s[z++];
+			result[i++][j] = '\0';
 		}
-		result[i] = (char *) malloc((length + 1) * sizeof(char));
-		if (!result[i])
-		{
-			while (i - 1 >= 0)
-				free(result[--i]);
-			return (0);
-		}
-		j = 0;
-		while(s[z] != c && s[z])
-			result[i][j++] = s[z++];
 		z++;
-		result[i++][j] = '\0';
 	}
 	result[i] = NULL;
 	return (1);

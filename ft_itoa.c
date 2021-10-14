@@ -2,8 +2,8 @@
 
 static int	get_length(int n)
 {
-	int length;
-	int temp;
+	int	length;
+	int	temp;
 
 	if (n == 0)
 		return (1);
@@ -25,7 +25,7 @@ static int	get_length(int n)
 static char	*min_value(int n)
 {
 	char	*result;
-	int 	length;
+	int		length;
 
 	if (n == -2147483648)
 	{
@@ -57,7 +57,6 @@ char	*ft_itoa(int n)
 	if (result)
 		return (result);
 	length = get_length(n);
-	// printf("length = %d\n", length);
 	result = (char *) malloc((length + 1) * sizeof(char));
 	if (!result)
 		return (NULL);
@@ -71,9 +70,8 @@ char	*ft_itoa(int n)
 	while (n)
 	{
 		result[length - 1] = n % 10 + 48;
-		// printf("result[%d] = %c")
 		length--;
-		n /= 10; 
+		n /= 10;
 	}
 	return (result);
 }
