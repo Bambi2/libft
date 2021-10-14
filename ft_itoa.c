@@ -77,9 +77,3 @@ char	*ft_itoa(int n)
 	}
 	return (result);
 }
-
-// int main()
-// {
-// 	int x = -0;
-// 	printf("mine = %s", ft_itoa(x));
-// }

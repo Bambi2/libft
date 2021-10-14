@@ -10,10 +10,3 @@ int ft_isalnum(int c)
         return (1);
     return (0);
 }
-
-
-// int main()
-// {
-//     printf("real = %d ", isalnum(5));
-//     printf("mine = %d\n", ft_isalnum(5));
-// }
