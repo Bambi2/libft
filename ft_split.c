@@ -73,6 +73,9 @@ char	**ft_split(char const *s, char c)
 	if (!result)
 		return (NULL);
 	if (!fill(result, s, c))
+	{
+		free(result);
 		return (NULL);
+	}
 	return (result);
 }

@@ -8,6 +8,14 @@
 #include <stdlib.h>
 #include <unistd.h>
 
+typedef struct s_list
+{
+	void			*content;
+	struct s_list	*next;
+} t_list;
+
+t_list	*ft_lstnew(void *content);
+
 int	ft_isascii(int c);
 int	ft_isprint(int c);
 int	ft_strncmp(const char *s1, const char *s2, size_t n);
@@ -43,5 +51,6 @@ char	*ft_strjoin(char const *s1, char const *s2);
 char	*ft_itoa(int n);
 char	*ft_strmapi(char const *s, char (*f)(unsigned int, char));
 char	**ft_split(char const *s, char c);
+char	*ft_strtrim(char const *s1, char const *set);
 
 #endif

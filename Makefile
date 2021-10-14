@@ -11,13 +11,15 @@ SRCS	=	ft_isascii.c   ft_isprint.c      ft_strlen.c\
 			ft_isalnum.c   ft_isascii.c      ft_itoa.c\
 			ft_strmapi.c   ft_striteri.c     ft_putchar_fd.c\
 			ft_putstr_fd.c ft_putendl_fd.c   ft_putnbr_fd.c\
-			ft_split.c
+			ft_split.c     ft_strtrim.c
 
-			
+SRCS_B	=	ft_lstnew.c
 
 HEADER	=	libft.h 
 
 OBJ		=	$(SRCS:%.c=%.o)
+
+OBJ_B	=	$(SRCS_B:%.c=%.o)
 
 CC		=	gcc
 
@@ -30,11 +32,14 @@ all		: $(NAME)
 $(NAME) : $(OBJ) $(HEADER)
 	ar rcs $(NAME) $?
 
-%.o 	: %.c 
+bonus	: $(OBJ_B) $(HEADER)
+	ar rcs $(NAME) $?
+
+%.o 	: %.c $(HEADER)
 	$(CC) $(CFLAGS) -c $< -o $@
 
 clean	:
-	rm -f $(OBJ)
+	rm -f $(OBJ) $(OBJ_B)
 
 fclean	: clean
 	rm $(NAME)

@@ -1,39 +1,58 @@
 #include "libft.h"
 
-char	*ft_strtrim(char const *s1, char const *set)
+static int set_check(char sym, char const *set)
 {
-    int     i;
-    int     j;
-    int     length;
-    char    *result;
-    int     check;
+    int i;
 
     i = 0;
-    j = 0;
+    while (set[i])
+    {
+        if (set[i] == sym)
+            return (1);
+        i++;
+    }
+    return (0);
+}
+
+static int get_length(char const *s1, char const *set)
+{
+    int length;
+    int i;
+    int j;
+
     length = 0;
-    check = 0;
-    while (s1[i])
+    i = 0;
+    while (s1[i] && set_check(s1[i], set))
     {
-        while (set[j])
-        {
-            if (s1[i] == set[j++])
-            {
-                length++;
-                check = 1;
-                break ;
-            }
-            i++;
-        }
-        if (!check)
-            break ; 
-        check = 0;
+        i++;
+        length++;
     }
-    if (i != ft_strlen(s1))
+    j = ft_strlen(s1);
+    while (j > i && set_check(s1[j - 1], set))
     {
-        while (s1[i])
+        j--;
+        length++;
     }
-    result = (char *) malloc(ft_strlen(s1) - length + 1);
+    return (length);
+}
+
+char	*ft_strtrim(char const *s1, char const *set)
+{
+    int     first;
+    int     i;
+    int     length;
+    char    *result;
+
+    length = ft_strlen(s1) - get_length(s1, set);
+    result = (char *) malloc(length + 1);
     if (!result)
         return (NULL);
-    
+    first = 0;
+    while (s1[first] && set_check(s1[first], set))
+        first++;
+    i = 0;
+    while (i < length)
+        result[i++] = s1[first++];
+    result[length] = '\0';
+    return (result);
 }
