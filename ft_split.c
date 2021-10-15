@@ -9,7 +9,7 @@ static int	get_string_count(char const *s, char c)
 	count = 1;
 	while (s[i])
 	{
-		if (s[i] == c && i != 0 && s[i + 1])
+		if (s[i] == c && i != 0 && s[i + 1] && s[i - 1] != c)
 			count++;
 		i++;
 	}
@@ -41,9 +41,9 @@ static int	fill(char **result, char const *s, char c)
 	z = 0;
 	while (s[z])
 	{
-		length = get_string_length(s + z, c);
-		if (length)
+		if (s[z] != c)
 		{
+			length = get_string_length(s + z, c);
 			result[i] = (char *) malloc((length + 1) * sizeof(char));
 			if (!result[i])
 			{
@@ -56,7 +56,8 @@ static int	fill(char **result, char const *s, char c)
 				result[i][j++] = s[z++];
 			result[i++][j] = '\0';
 		}
-		z++;
+		else
+			z++;
 	}
 	result[i] = NULL;
 	return (1);
