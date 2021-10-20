@@ -30,10 +30,19 @@ static int	get_string_length(char const *s, char c)
 	return (i);
 }
 
+void	add_new(char *result, char c, int *z, char const *s)
+{
+	int	j;
+
+	j = 0;
+	while (s[(*z)] != c && s[(*z)])
+		result[j++] = s[(*z)++];
+	result[j] = '\0';
+}
+
 static int	fill(char **result, char const *s, char c)
 {
 	int	i;
-	int	j;
 	int	z;
 	int	length;
 
@@ -51,10 +60,7 @@ static int	fill(char **result, char const *s, char c)
 					free(result[--i]);
 				return (0);
 			}
-			j = 0;
-			while (s[z] != c && s[z])
-				result[i][j++] = s[z++];
-			result[i++][j] = '\0';
+			add_new(result[i++], c, &z, s);
 		}
 		else
 			z++;
