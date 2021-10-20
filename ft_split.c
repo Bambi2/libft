@@ -30,7 +30,7 @@ static int	get_string_length(char const *s, char c)
 	return (i);
 }
 
-void	add_new(char *result, char c, int *z, char const *s)
+static void	add_new(char *result, char c, int *z, char const *s)
 {
 	int	j;
 
